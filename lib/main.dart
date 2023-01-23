@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Offline todo list',
         theme: ThemeData(
-          primarySwatch: Colors.orange,
+          primarySwatch: Colors.blueGrey,
+          scaffoldBackgroundColor: Colors.blueGrey,
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.white,foregroundColor: Colors.blueGrey)
         ),
         home: const HomePage());
   }
@@ -146,6 +148,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Offline todo list'),
+        elevation: 0,
         centerTitle: true,
       ),
       body: _isLoading
@@ -155,7 +158,8 @@ class _HomePageState extends State<HomePage> {
           : ListView.builder(
         itemCount: _journals.length,
         itemBuilder: (context, index) => Card(
-          color: Colors.orange[200],
+          elevation: 2,
+          color: Colors.white,
           margin: const EdgeInsets.all(15),
           child: ListTile(
               title: Text(_journals[index]['title']),
